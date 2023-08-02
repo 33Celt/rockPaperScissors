@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        // Create function for computer to generate random rock, paper, or scissors
+        function getComputerChoice() {
+            let variables = ["rock", "paper", "scissors"];
+            let randomChoice = Math.floor(Math.random() * variables.length);
+            return variables[randomChoice];
+        }
+
+        function game() {
+            // Make a scoreboard
+            let scores = {
+                userScore: 0,
+                computerScore: 0
+            };
+
+            for (let i = 0; i < 5; i++) {
+                let userSelection = prompt("Please enter Rock, Paper, or Scissors: ");
+                userSelection = userSelection.toLowerCase();
+
+                let computerChoice = getComputerChoice();
+
+                console.log("Computer's Choice:", computerChoice);
+                console.log("User's Choice:", userSelection);
+
+                // Play the round and update the scores
+                playRound(userSelection, computerChoice, scores);
+            }
+
+            // Display the final scores after the game is completed
+            console.log("Final Scores:");
+            console.log("User Score:", scores.userScore);
+            console.log("Computer Score:", scores.computerScore);
+        }
+
+        function playRound(userSelection, computerChoice, scores) {
+            // Create the rules of the game and display the results
+            // ...
+
+            // Update the scores based on the game outcome
+            if (userSelection == "rock" && computerChoice == "scissors") {
+                scores.userScore++;
+                console.log("The Score is:", scores.userScore, scores.computerScore);
+            } else if (userSelection == "rock" && computerChoice == "paper") {
+                scores.computerScore++;
+                console.log("The Score is:", scores.userScore, scores.computerScore);
+            } else if (userSelection == "rock" && computerChoice == "rock") {
+                console.log("The Score is:", scores.userScore, scores.computerScore);
+            }
+
+            if (userSelection == "paper" && computerChoice == "scissors") {
+                scores.computerScore++;
+                console.log("The Score is:", scores.userScore, scores.computerScore);
+            } else if (userSelection == "paper" && computerChoice == "paper") {
+                
+                console.log("The Score is:", scores.userScore, scores.computerScore);
+            } else if (userSelection == "paper" && computerChoice == "rock") {
+                scores.userScore++;  
+                console.log("The Score is:", scores.userScore, scores.computerScore);
+            }
+
+            if (userSelection == "scissors" && computerChoice == "scissors") {
+               
+                console.log("The Score is:", scores.userScore, scores.computerScore);
+            } else if (userSelection == "scissors" && computerChoice == "paper") {
+                
+                scores.userScore++;
+                console.log("The Score is:", scores.userScore, scores.computerScore);
+            } else if (userSelection == "scissors" && computerChoice == "rock") {
+                scores.computerScore++;
+                console.log("The Score is:", userScore, computerScore);
+            }
+
+            // Continue the other game logic for scissors and paper...
+        }
+
+        // Call the game function to start the game
+        game();
+    </script>
+</body>
+</html>
